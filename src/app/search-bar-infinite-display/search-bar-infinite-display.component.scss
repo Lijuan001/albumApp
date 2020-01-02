@@ -1,0 +1,39 @@
+.autocomplete{
+    position:relative;
+    
+}
+
+form{
+    display: flex;
+    flex-direction: row;
+
+}
+
+header{
+    background-color:green;
+    display:flex;
+    justify-content: center;
+    height: 3rem;
+    align-items: center;
+}
+
+input{
+    border-radius: 10px;
+    border:1px solid green;
+    height:1.5rem;
+}
+
+input:focus{
+    border-radius:10px;
+    outline: 1px solid green;
+
+}
+
+button[type="submit"]{
+    border-radius: 10px;
+    border:1px solid green;
+}
+
+.main{
+    text-align: center;
+}

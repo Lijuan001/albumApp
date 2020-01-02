@@ -1,0 +1,29 @@
+<pagination-controls (pageChange)="p=$event"></pagination-controls>
+
+
+<div *ngIf="!gotResult">
+    Search Albums by ArtistName:{{artistName}}
+</div>
+<br/>
+
+
+
+<!-- <i class="icon-spinner icon-spin icon-large"></i> Spinner icon when loading content... -->
+
+<div *ngIf="gotResult">
+    {{albumList.length}} results has been found:
+</div>
+<br/>
+<div class="album-list-content">
+    
+    <div *ngFor="let album of albumList | paginate:
+    {itemsPerPage:30 , currentPage:p}" class="album-card">
+        <img *ngIf="album.artworkUrl100" [src]="album.artworkUrl100"
+        alt="" class="album-item img">
+        <img *ngIf="!album.artworkUrl100" [src]="album.artworkUrl30" alt=""
+         class="album-item img">
+       <div class="album-item">{{ album.collectionName }}</div>  
+    </div>
+</div>
+
+

@@ -1,0 +1,26 @@
+<header>
+    <!-- <div>
+        <button type="button" class="albums-search__previous"  (click)="previousHandler($event)">Previous</button>
+    </div> -->
+    <form autocomplete="off" class="albums-search__form"  (ngSubmit)="getAlbums()" #searchForm="ngForm">
+        <div class="autocomplete" stype="width:300px;">
+            <input list="artists" type="text" class="albums-search__input" (keyup)="typeAheadHandler($event)" #searchField
+            [(ngModel)]="search.searchField" name="searchField" placeholder="Search..." required>
+            <datalist id="artists">
+                <option  *ngFor="let artist of typeAheadSearchList" [value]="artist.artistName">
+            </datalist>
+        </div>
+        <button type="submit">
+            <img  type="submit" src="../../../assets/imgs/search.png" alt="search" width="16ps">
+        </button> 
+    </form>
+    <!-- <div>
+        <button type="button" class="albums-search__next" (click)="nextHandler($event)">Next</button>
+    </div> -->
+</header>
+
+<main class="main">
+    <app-albums-infinate [albumList]="albumList"
+    [artistName]="searchField.value" [gotResult]="gotResult"></app-albums-infinate>
+</main>
+

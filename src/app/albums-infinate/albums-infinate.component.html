@@ -1,0 +1,43 @@
+
+
+<div *ngIf="!gotResult">
+    Search Albums by ArtistName:{{artistName}}
+</div>
+<br/>
+
+
+
+<!-- <i class="icon-spinner icon-spin icon-large"></i> Spinner icon when loading content... -->
+
+<div *ngIf="gotResult">
+    {{albumList.length}} results has been found:
+</div>
+<br/>
+<div class="album-list-content">
+    
+    <div *ngFor="let album of albumList" class="album-card">
+        <img *ngIf="album.artworkUrl100" [src]="album.artworkUrl100"
+        alt="" class="album-item img">
+        <img *ngIf="!album.artworkUrl100" [src]="album.artworkUrl30" alt=""
+         class="album-item img">
+       <div class="album-item">{{ album.collectionName }}</div>  
+    </div>
+</div>
+
+
+
+<div
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="1000"
+  (scrolled)="onScroll()">
+</div>
+
+<div *ngIf="!finished">
+ Loading more movies...
+</div>
+
+
+<div *ngIf="finished">
+  End of database... That's all folks!
+</div>
